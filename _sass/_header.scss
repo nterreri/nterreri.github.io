@@ -1,0 +1,16 @@
+.nt-header {
+    border-bottom: 1.5px solid #aaa;
+}
+
+.nt-header__nav {
+    display: flex;
+    margin: 0 100px;
+    justify-content: flex-end;
+    align-items: center;
+    height: 50px;
+}
+
+.nt-header__link {
+    margin: 0 20px;
+    color: initial;
+}

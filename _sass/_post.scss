@@ -1,0 +1,21 @@
+.nt-post {
+    display: block;
+    text-decoration-line: none;
+}
+
+.nt-post__title {
+    font-size: 1.5em;
+    text-decoration-line: underline;
+}
+
+.nt-post__date {
+    display: block;
+    color: #69f;
+    font-size: 0.8em;
+}
+
+.nt-post__excerpt {
+    margin-top: 10px;
+    color: grey;
+    width: 85%;
+}

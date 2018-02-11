@@ -1,0 +1,17 @@
+---
+layout: standard
+title: nterreri | Blog
+---
+<h1>Blog Posts</h1>
+<ul>
+    {% for post in site.posts %}
+    <li>
+        <a class="nt-post" href="{{ post.url }}">
+            <span class="nt-post__title">{{ post.title }}</span>
+            <div class="nt-post__date">{{ post.date | date_to_string }}</div>
+            <div class="nt-post__excerpt">{{ post.excerpt | truncate: 300 | remove: '<p>' | remove: '</p>' }}</div>
+        </a>
+    </li>
+    {% endfor %}
+</ul>
+

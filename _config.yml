@@ -1,1 +1,10 @@
-theme: jekyll-theme-minimal
+repository: nterreri/nterreri.github.io
+port: 8000
+strict_front_matter: true
+exclude: ["Gemfile", "Gemfile.lock", "ignore"]
+include: ["public/*"]
+karmdown:
+  show_warnings: true
+stylesheet: nt.css
+index: /
+about: about
