@@ -17,5 +17,7 @@
 .nt-post__excerpt {
     margin-top: 10px;
     color: grey;
+    text-align: justify;
+    text-rendering: optimizeLegibility;
     width: 85%;
 }

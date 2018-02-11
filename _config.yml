@@ -6,5 +6,6 @@ include: ["public/*"]
 karmdown:
   show_warnings: true
 stylesheet: nt.css
+favico: favicon.ico
 index: /
 about: about
