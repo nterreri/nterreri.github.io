@@ -1,9 +1,10 @@
 .nt-post-content {
     height: 100%;
-    margin: 5px 50px;
+    margin: 5px 150px;
 }
 
-.nt-post-content p {
+.nt-post-content p,
+.nt-post-content ul {
     text-align: justify;
     text-rendering: optimizeLegibility;
     line-height: 1.4;
