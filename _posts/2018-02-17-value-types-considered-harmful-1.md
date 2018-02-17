@@ -2,6 +2,7 @@
 layout: post
 title: Value types considered harmful (part 1)
 permalink: value-types-considered-harmful-1
+date: 2018-02-17
 ---
 
 This post is part of a series on value types, particularly in the C# language, and why some people consider defining your own value types not useful or even dangerous.
@@ -33,7 +34,7 @@ If you're willing to dig deep enough you'll find that [C# does indeed support a 
 
 ## Conclusion
 
-In this post, we have introduced a distinction in some managed languages between value and reference types, and presented a basic argument for them. The essential trade-off with value types is that no processor cycles will be used to keep track of whether there's still at least one reference to the instance (garbage collection) but more memory overall may end up being used by the program depending on how many concurrent copies of the value exist as they it is passed around and mutated.
+In this post we have introduced a distinction in some managed languages between value and reference types, and presented a basic argument for them. The essential trade-off with value types is that no processor cycles will be used to keep track of whether there's still at least one reference to the instance (garbage collection) but more memory overall may end up being used by the program depending on how many concurrent copies of the value exist as they it is passed around and mutated.
 
 In the next post we'll see the limitations with using value types in C# and the arguments against the use of custom value types outside the ones built into the CLR.
 
