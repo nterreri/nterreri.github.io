@@ -60,3 +60,11 @@ In this post we carried our discussion of value types further, argued against th
 If you read this conclusion as I do, it is perhaps a disappointing result. Surely it is more crucial to us as professional developers that others may easily understand our software, before we become concerned with performance. But why shy away from a feature of our beloved languages as basic as specifying the nature of our types due to the cognitive complications that arise from their use? Especially when we consider the importance of explicit and well expressed design for our software units and the larger pieces of software we compose out of them.
 
 What I am trying to say is that readability should come before performance. But does this mean should not explicitly document our design in our code, also by specifying what we believe the nature of the type we are defining should entail?
+
+https://blogs.msdn.microsoft.com/ericlippert/2009/05/04/the-stack-is-an-implementation-detail-part-two/
+
+https://stackoverflow.com/a/6973171
+
+https://docs.microsoft.com/en-us/dotnet/standard/design-guidelines/choosing-between-class-and-struct
+
+
