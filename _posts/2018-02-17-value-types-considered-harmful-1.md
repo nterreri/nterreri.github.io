@@ -3,7 +3,7 @@ layout: post
 title: Value types considered harmful (part 1)
 permalink: value-types-considered-harmful-1
 date: 2018-02-17
-last-edited: 2018-02-24
+last-edited: 2018-02-25
 ---
 
 This post is part of a series on value types, particularly in the C# language, and why some people consider defining your own value types not useful or even dangerous.
@@ -41,8 +41,9 @@ In the next post we'll see the limitations with using value types in C# and the 
 
 #### Further reading
 - E. Lippert. *[The stack is an implementation detail, part one][5]*. 2009.
-    [Generally every Lippert has written about value types explains them in much more depth than this series][6].
+    [Generally everything Lippert has written about value types explains them in much more depth than this series][6].
 - J. Richter. *CLR via C#*, Chapters 5, 19. Fourth printing: Microsoft Press 2014.
+    The basic argument for value types is from Chapter 5 here.
 - J. Skeet. *C# in depth*, Chapter 2.2. Manning Publications 2014.
 - Rich Hickey. *The value of values*. 2012.
 
