@@ -1,7 +1,7 @@
 repository: nterreri/nterreri.github.io
 port: 8000
 strict_front_matter: true
-exclude: ["Gemfile", "Gemfile.lock", "ignore"]
+exclude: ["Gemfile", "Gemfile.lock", "ignore", "yarn.lock", "node_modules", "package.json", ".jshintrc", ".jscsrc"]
 include: ["public/*"]
 karmdown:
   show_warnings: true
@@ -9,3 +9,4 @@ stylesheet: nt.css
 favico: favicon.ico
 index: /
 about: about
+analytics: _includes/analytics.js

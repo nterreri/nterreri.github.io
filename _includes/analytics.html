@@ -1,8 +1,51 @@
 <script async src="https://www.googletagmanager.com/gtag/js?id=UA-114389878-1"></script>
 <script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+window.addEventListener('load', function() {
+    askForCookiesConsent();
+});
 
-  gtag('config', 'UA-114389878-1');
+function askForCookiesConsent() {
+    window.cookieConsent = false;
+
+    if (!window.cookieConsent) {
+        const consentHeader = document.createElement('div');
+        consentHeader.setAttribute('class', 'nt-consent');
+
+        const message =
+            'This websites uses cookies to gather information such as the number of visitors and which blog posts are popular. By continuing to use this website you consent to the use of cookies for these purposes.';
+        const messageNode = document.createElement("span");
+        messageNode.setAttribute('class', 'nt-consent__message');
+        messageNode.textContent = message;
+
+        const cookiePolicyLink = document.createElement('a');
+        cookiePolicyLink.setAttribute('href', '/cookie-policy');
+        cookiePolicyLink.setAttribute('class', 'nt-consent__link');
+        const cookiePolicyLinkLabel = document.createElement('span');
+        cookiePolicyLinkLabel.setAttribute('class', 'nt-consent__link-label');
+        cookiePolicyLinkLabel.textContent = 'Read more';
+        cookiePolicyLink.appendChild(cookiePolicyLinkLabel);
+        messageNode.appendChild(cookiePolicyLink);
+
+        const okButton = document.createElement('button');
+        okButton.setAttribute('class', 'nt-consent__ok-button');
+        okButton.textContent = 'OK';
+
+        console.log('created in-memory dom nodes');
+
+        consentHeader.appendChild(messageNode);
+        consentHeader.appendChild(okButton);
+
+        document.body.appendChild(consentHeader);
+        document.getElementsByTagName('header')[0].setAttribute('class', 'nt-header--with-consent');
+
+        console.log('added cookie policy note to dom');
+        return;
+    }
+
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-114389878-1');
+}
 </script>

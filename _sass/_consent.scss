@@ -1,0 +1,43 @@
+.nt-consent {
+    position: fixed;
+    top: 0;
+    left: 0;
+    background: lightgray;
+    max-height: 70px;
+    overflow: hidden;
+    padding: 15px;
+    border-bottom: 1px solid grey;
+    display: flex;
+    font-size: 0.7em;
+}
+
+.nt-consent__message {
+    flex: 1;
+}
+
+.nt-consent__link {
+    height: auto;
+    align-self: flex-end;
+    margin: 10px;
+}
+
+.nt-consent__link-label {
+    height: 100%;
+    vertical-align: bottom;
+}
+
+.nt-consent__ok-button {
+    margin: 5px 20px;
+    border: 1px groove gray;
+    border-radius: 4px;
+    background: scale-color(
+        $color: #aaaaff,
+        $saturation: 0%,
+        $lightness: 90%,
+        $alpha: 100%);
+    // transition-duration: 0.2s;
+}
+
+// .nt-consent__ok-button:hover {
+//     // background-color: whitesmoke;
+// }
