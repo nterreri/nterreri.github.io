@@ -2,17 +2,18 @@
     position: fixed;
     top: 0;
     left: 0;
+    width: 100%;
     background: lightgray;
-    max-height: 70px;
     overflow: hidden;
-    padding: 15px;
+    padding: 15px 15px 5px 15px;
     border-bottom: 1px solid grey;
     display: flex;
     font-size: 0.7em;
+    box-shadow: 0 5px 15px 0 gray;
 }
 
 .nt-consent__message {
-    flex: 1;
+    align-self: center;
 }
 
 .nt-consent__link {
@@ -24,20 +25,29 @@
 .nt-consent__link-label {
     height: 100%;
     vertical-align: bottom;
+    white-space: nowrap;
 }
 
 .nt-consent__ok-button {
-    margin: 5px 20px;
-    border: 1px groove gray;
-    border-radius: 4px;
-    background: scale-color(
-        $color: #aaaaff,
-        $saturation: 0%,
-        $lightness: 90%,
-        $alpha: 100%);
-    // transition-duration: 0.2s;
+    margin: 5px 30px;
+    height: 35px;
+    width: 80px;
+    padding: 5px;
+    border: 2px solid #4ba5e0;
+    background: #98bfda;
+    flex: none;
+    align-self: flex-end;
+    cursor: pointer;
+    transition: 0.3s;
 }
 
-// .nt-consent__ok-button:hover {
-//     // background-color: whitesmoke;
-// }
+.nt-consent__ok-button:hover {
+    background: #cee1f0;
+    transition-duration: 0.3s;
+}
+
+.nt-consent__ok-button:active {
+    border: 2px groove #4399d3;
+    background: #98bfda;
+    transition: none;
+}
