@@ -2,6 +2,7 @@
 layout: post
 title: Value types considered harmful (part 2)
 permalink: value-types-considered-harmful-2
+date: 2018-02-25
 ---
 
 This post is part of a series on value types, particularly in the C# language, and why some people consider defining your own value types not useful or even dangerous.
