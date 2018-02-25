@@ -1,51 +1,63 @@
 <script async src="https://www.googletagmanager.com/gtag/js?id=UA-114389878-1"></script>
 <script>
-window.addEventListener('load', function() {
-    askForCookiesConsent();
-});
+function hasCookiesConsent() {
+    return localStorage['consent'];
+}
 
-function askForCookiesConsent() {
-    window.cookieConsent = false;
+function showCookiesBanner() {
+    const consentHeader = document.createElement('div');
+    consentHeader.setAttribute('class', 'nt-consent');
 
-    if (!window.cookieConsent) {
-        const consentHeader = document.createElement('div');
-        consentHeader.setAttribute('class', 'nt-consent');
+    const message =
+        'This websites uses cookies to gather information such as the number of visitors and which blog posts are popular. By continuing to use this website you consent to the use of cookies for these purposes.';
+    const messageNode = document.createElement("span");
+    messageNode.setAttribute('class', 'nt-consent__message');
+    messageNode.textContent = message;
 
-        const message =
-            'This websites uses cookies to gather information such as the number of visitors and which blog posts are popular. By continuing to use this website you consent to the use of cookies for these purposes.';
-        const messageNode = document.createElement("span");
-        messageNode.setAttribute('class', 'nt-consent__message');
-        messageNode.textContent = message;
+    const cookiePolicyLink = document.createElement('a');
+    cookiePolicyLink.setAttribute('href', '/privacy');
+    cookiePolicyLink.setAttribute('class', 'nt-consent__link');
+    const cookiePolicyLinkLabel = document.createElement('span');
+    cookiePolicyLinkLabel.setAttribute('class', 'nt-consent__link-label');
+    cookiePolicyLinkLabel.textContent = 'Read more';
+    cookiePolicyLink.appendChild(cookiePolicyLinkLabel);
+    messageNode.appendChild(cookiePolicyLink);
 
-        const cookiePolicyLink = document.createElement('a');
-        cookiePolicyLink.setAttribute('href', '/cookie-policy');
-        cookiePolicyLink.setAttribute('class', 'nt-consent__link');
-        const cookiePolicyLinkLabel = document.createElement('span');
-        cookiePolicyLinkLabel.setAttribute('class', 'nt-consent__link-label');
-        cookiePolicyLinkLabel.textContent = 'Read more';
-        cookiePolicyLink.appendChild(cookiePolicyLinkLabel);
-        messageNode.appendChild(cookiePolicyLink);
+    const okButton = document.createElement('button');
+    okButton.setAttribute('class', 'nt-consent__ok-button');
+    okButton.textContent = 'OK';
+    okButton.onclick = handleOkClick;
 
-        const okButton = document.createElement('button');
-        okButton.setAttribute('class', 'nt-consent__ok-button');
-        okButton.textContent = 'OK';
+    consentHeader.appendChild(messageNode);
+    consentHeader.appendChild(okButton);
 
-        console.log('created in-memory dom nodes');
+    document.body.appendChild(consentHeader);
+    document.getElementsByTagName('header')[0].setAttribute('class', 'nt-header--with-consent');
+}
 
-        consentHeader.appendChild(messageNode);
-        consentHeader.appendChild(okButton);
+function handleOkClick(e) {
+    localStorage['consent'] = true;
 
-        document.body.appendChild(consentHeader);
-        document.getElementsByTagName('header')[0].setAttribute('class', 'nt-header--with-consent');
+    e.target.parentNode.remove();
+    document.getElementsByTagName('header')[0].setAttribute('class', 'nt-header');
 
-        console.log('added cookie policy note to dom');
-        return;
-    }
+    trackPageHit();
+}
 
+function trackPageHit() {
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
 
     gtag('config', 'UA-114389878-1');
 }
+</script>
+<script>
+window.addEventListener('load', function() {
+    if (!hasCookiesConsent()) {
+        showCookiesBanner();
+    } else {
+        trackPageHit();
+    }
+});
 </script>

@@ -9,4 +9,5 @@ stylesheet: nt.css
 favico: favicon.ico
 index: /
 about: about
+privacy: privacy
 analytics: _includes/analytics.js
