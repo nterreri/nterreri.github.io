@@ -1,0 +1,14 @@
+{
+    "name": "nterreri.github.io",
+    "version": "0.1",
+    "description": "Software supporting my personal blog.",
+    "license": "BSD-3-Clause",
+    "keywords": [
+        "blog"
+    ],
+    "private": true,
+    "devDependencies": {
+        "jscs": "^3.0.7",
+        "jshint": "^2.9.5"
+    }
+}
