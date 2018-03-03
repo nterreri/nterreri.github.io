@@ -4,3 +4,4 @@ Gemfile.lock
 .jekyll-metadata
 yarn.lock
 node_modules/
+.vscode/
