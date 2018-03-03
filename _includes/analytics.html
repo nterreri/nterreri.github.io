@@ -38,9 +38,11 @@ function showCookiesBanner() {
 function handleOkClick(e) {
     localStorage['consent'] = true;
 
-    e.target.parentNode.remove();
     document.getElementsByTagName('header')[0].setAttribute('class', 'nt-header');
+    const consentHeaderClassname = e.target.parentNode.className;
+    e.target.parentNode.setAttribute('class', `${consentHeaderClassname} nt-consent--hiding`);
 
+    setTimeout(() => e.target.parentNode.remove(), 2000);
     trackPageHit();
 }
 

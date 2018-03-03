@@ -12,6 +12,11 @@
     box-shadow: 0 5px 15px 0 gray;
 }
 
+.nt-consent--hiding {
+    top: -200px;
+    transition-duration: 1s;
+}
+
 .nt-consent__message {
     align-self: center;
 }
