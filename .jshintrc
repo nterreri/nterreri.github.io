@@ -3,6 +3,7 @@
     "esversion": 6,
     "unused": true,
     "undef": true,
+    "browser": true,
     "devel": true,
     "globals": {
         "RTCPeerConnection": false
