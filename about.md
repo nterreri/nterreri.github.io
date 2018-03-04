@@ -14,3 +14,16 @@ couple of years of professional experience.
 Typescript and React.
 
 - Has a cat named Nosey who is true to her name.
+
+
+## Contact info/links
+
+- [linkedin][1]
+
+- [github][2]
+
+- [MSc thesis][3]
+
+[1]:https://www.linkedin.com/in/nterreri/
+[2]:https://github.com/nterreri
+[3]:https://github.com/nterreri/thesis/blob/master/report/NiccoloTerreriMSCCSReport.pdf
