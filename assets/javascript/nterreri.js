@@ -7,7 +7,11 @@ if (window.nt) {
 }
 
 function hasCookiesConsent() {
-    return localStorage.getItem('consent');
+    return !localStorage.getItem('no-consent');
+}
+
+function cookieBannerAcknowledged() {
+    return localStorage.getItem('cookies-acknowledged');
 }
 
 function showCookiesBanner() {
@@ -42,14 +46,13 @@ function showCookiesBanner() {
 }
 
 function handleOkClick(e) {
-    localStorage.setItem('consent', true);
+    localStorage.setItem('cookies-acknowledged', true);
 
     document.getElementsByTagName('header')[0].setAttribute('class', 'nt-header');
     const consentHeaderClassname = e.target.parentNode.className;
     e.target.parentNode.setAttribute('class', `${consentHeaderClassname} nt-consent--hiding`);
 
     setTimeout(() => e.target.parentNode.remove(), 2000);
-    trackPageHit();
 }
 
 function trackPageHit() {
@@ -62,6 +65,7 @@ function trackPageHit() {
 
 window.nt = {
     hasCookiesConsent,
+    cookieBannerAcknowledged,
     showCookiesBanner,
     trackPageHit
 };
