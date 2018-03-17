@@ -5,9 +5,11 @@ exclude: ["Gemfile", "Gemfile.lock", "ignore", "yarn.lock", "node_modules", "pac
 include: ["public/*"]
 karmdown:
   show_warnings: true
-stylesheet: nt.css
-favico: favicon.ico
+highlighter: pygments
+
 index: /
 about: about
 privacy: privacy
-analytics: _includes/analytics.js
+stylesheet: nt.css
+favico: favicon.ico
+
