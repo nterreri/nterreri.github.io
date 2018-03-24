@@ -2,6 +2,7 @@
 layout: post
 title: Two React MVVM patterns
 permalink: two-react-mvvm-patterns
+date: 2018-03-24
 ---
 
 In this post we'll talk about two MVVM-compatible architectural patterns for React aiming at explaining how a user action all the way deep inside a nested view in the corner of a web app can affect a different view on the other side of the app.
@@ -12,7 +13,7 @@ For example, say you you split your application into two main halves, each with 
 
 If you adopt MVVM as the main way to drive your application, the simplest answer is to let the core application model drive every view. Selecting a control in one of your views eventually changes the core model, your other view is ultimately driven by such changes and so it responds by re-rendering as appropriate. This means you only need to ensure your core model can support modeling this type of user action.
 
-![MVVM](assets/img/MVVM.jpg)
+![MVVM](assets/img/mvvm.jpg)
 
 The obvious limitation to this approach is that sometimes the event action does not cause a change in your core model itself, but only affects what is shown to the user. For this reason it perhaps does not belong to the core model, which is meant to reflect the implementation independent and view independent state and logic of your application.
 
