@@ -19,14 +19,14 @@ Once upon a time, at work, I had the chance of structuring and styling a new vie
 
 My list would look something like the following:
 
-``` html
+{% highlight html%}
     <ul class="users-list">
         <li class="user">Something complex in here</li>
         <li class="user">Something complex in here</li>
         <li class="user">Something complex in here</li>
         <li class="user">Something complex in here</li>
     </ul>
-```
+{% endhighlight %}
 
 The only catch: the last element in the list needed to be styled slightly differently from the others. Each of these elements had a line under it to distinguish it from the next. But there would not be a line drawn under the last element. There's nothing below the last element, so there's no "need" to separate it with a line. Furthermore, each "user" entry was in mind sufficiently complex to deserve to be considered its own separate block rather than a piece of a list, so I did not call them "users-list\__item" or "users-list__user".
 
@@ -36,20 +36,22 @@ At first I figured I use state to distinguish this last element. Again, I wanted
 
 This list had to be dynamically generated based on the state of our application, so generally when rendering this list we have to dynamically figure out which one is the last element. Our logic looked something like this initally (using React):
 
-``` JSX
-    listItems.map(item => <User name={item.displayName} /* and a bunch of other things ... */ />);
-```
+{% highlight jsx %}
+    listItems.map(item =>
+        <User
+            name={item.displayName}
+            /* and a bunch of other things ... */ />);
+{% endhighlight %}
 
 Then turned into:
 
-```JSX
+{% highlight jsx %}
     listItems.map((item, index, list) =>
         <User
-        name={item.displayName}
-        /* and a bunch of other things ... */
-        isLast={index === list.length - 1}
-        />);
-```
+            name={item.displayName}
+            /* and a bunch of other things ... */
+            isLast={index === list.length - 1} />);
+{% endhighlight %}
 
 When the element is the last one in the list, it is rendered with a different state by adding a modifier: "user--last".
 
@@ -66,24 +68,24 @@ But I tried applying the advice to my new view, while still not convinced.
 ## Epiphany
 
 After a bit of work the rendering logic looked like this:
-``` JSX
+{% highlight JSX %}
     listItems.map((item, index, list) =>
         <User
         name={item.displayName}
         /* and a bunch of other things ... */
         classNames={index === list.length - 1 ? "user-list__item--last" : "user-list__item"}
         />);
-```
+{% endhighlight %}
 
 And the rendered result was something like this:
-``` html
+{% highlight html %}
     <ul class="users-list">
         <li class="user user-list__item">Something complex in here</li>
         <li class="user user-list__item">Something complex in here</li>
         <li class="user user-list__item">Something complex in here</li>
         <li class="user user-list__item--last">Something complex in here</li>
     </ul>
-```
+{% endhighlight %}
 
 All this meant to the style was that normally "user-list__item"s are rendered with a line below them, and each "user" only worries about rendering its content right without worrying about lines around it.
 

@@ -18,6 +18,14 @@ a:visited {
     font-size: large;
 }
 
+.language-html {
+    color: white;
+}
+
+.highlight pre {
+    overflow-x: auto;
+}
+
 img {
     overflow: hidden;
     height: auto;
