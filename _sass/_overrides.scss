@@ -25,3 +25,10 @@ a:visited {
 .highlight pre {
     overflow-x: auto;
 }
+
+img {
+    overflow: hidden;
+    height: auto;
+    max-width: 90%;
+    margin: 15px 0;
+}
