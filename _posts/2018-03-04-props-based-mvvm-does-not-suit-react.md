@@ -43,7 +43,7 @@ In order to implement MVVM in React in a way that does not directly violate the 
 
 Match a view with a view model implementation, make it subscribe (via your favorite subscription pattern) to changes in the state of the view model. Whenever the view model properties update, queue a state update on the React component, picking each property you are interested in from your view model. Something like so:
 
-``` JavaScript
+{% highlight javascript %}
     // somehow:
     this.props.viewModel.subscribe();
     . . .
@@ -53,7 +53,7 @@ Match a view with a view model implementation, make it subscribe (via your favor
         activityProperty: props.viewModel.getActivity(),
         whateverElse: props.viewModel.getEtc()
     }));
-```
+{% endhighlight %}
 
 Basically, we can explicitly use the component private state to queue a re-render in a natural manner, without forcing one. Note that, in this implementation, the whole view model instance that is going to be used throughout the lifetime of the component is passed down as a prop by the parent, not its individual properties or the next immutable instance of it.
 
