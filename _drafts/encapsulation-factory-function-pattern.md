@@ -34,7 +34,7 @@ car.move(123);
 
 Alternatively, since ES2015:
 
-{% highlight %}
+{% highlight javascript %}
 class Car {
     constructor() {
         this.kilometersTraveled = 0;
@@ -75,9 +75,9 @@ car.move(123);
 
 The core arguments for the "factory function" are:
 
-1) It does not rely on function binding (`this`)
-2) It allows for procedural encapsulation
-3) It does not use those ugly prototypes
+1. It does not rely on function binding (`this`)
+2. It allows for procedural encapsulation
+3. It does not use those ugly prototypes
 
 The core acknowledged disadvantage of this pattern is that is does not allow for inheritance, as such it is not considered an OOP pattern (though may be considered "object-based".) This is, however, mostly not considered a big disadvantage, for one it is always possible to use composition instead of inheritance, and secondly inheritance is considered harmful as it is a form of very tight coupling (see also the "gorilla-banana" problem.) This means you can use this pattern for more or less anything you'd want to use classes for.
 
@@ -113,14 +113,14 @@ Another way to encapsulate your private methods is by using function closure wit
 
 State and behavior should be encapsulated, but the real question is what is the point of encapsulation? There are really two kinds of  encapsulation.
 
-1) run-time encapsulation
-2) author-time encapsulation
+1. run-time encapsulation
+2. author-time encapsulation
 
-The factory function pattern achieves the first (stronger) level of encapsulation, even if you can write JS that seems to access private properties, you will only end up with a `ReferenceError` at runtime. State and behavior defined within a function body is scoped to that function only, so only what you explicitly expose will be accessible from the outside. The level of encapsulation normally achieved in languages such as C# is really the second. The moment you introduce a reflection API, you can always "attack" the privately held state of a class instance. This is the same level of encapsulation you achieve in a language such as Typescript where you introduce compile-time constraints to accessing private class properties, but everything is freely accessible at runtime.
+The factory function pattern achieves the first (stronger) level of encapsulation, even if you can write JS that seems to access private properties, you will only end up with a `TypeError`/`ReferenceError` at runtime. State and behavior defined within a function body is scoped to that function only, so only what you explicitly expose will be accessible from the outside. The level of encapsulation normally achieved in languages such as C# is really the second. The moment you introduce a reflection API, you can always "attack" the privately held state of a class instance. This is the same level of encapsulation you achieve in a language such as Typescript where you introduce compile-time constraints to accessing private class properties, but everything is freely accessible at runtime.
 
 {% highlight javascript %}
 function proceduralEncapsulation() {
-    const privateState;
+    let privateState;
 
     function privateMethod() { /* something goes here */}
 
@@ -137,12 +137,13 @@ function proceduralEncapsulation() {
 const stuffEncapsulated = proceduralEncapsulation();
 
 stuffEncapsulated.publicMethod(); // ok
-stuffEncapsulated.privateMethod(); // ReferenceError
-stuffEncapsulated.privateState = 123; // ReferenceError
+stuffEncapsulated.privateMethod(); // TypeError
+stuffEncapsulated.privateState = 123;
+// set a new property on the object, doesn't modify the privateState declared above
 
 {% endhighlight %}
 
-Compare this with typescript:
+Compare this with Typescript:
 
 {% highlight typescript %}
 class ClassEncapsulation {
@@ -172,6 +173,8 @@ The difference between number 1 and number 2 above is, for the purpose of develo
 
 ## Conclusion
 
-In summary, one of the strongest reasons for using the "factory function" pattern is encapsulation. This is better achieved by using some form of author-type validation (such as using Typescript) or using a naming convention (prefixing private properties with underscores, the "grown-up" rule from Python.)
+In summary, one of the strongest reasons for using the "factory function" pattern is encapsulation. This is better achieved by using some form of author-type validation (such as using Typescript.)
 
-"But what if I don't want to use Typescript and still *enforce* encapsulation?" As mentioned, there are other not so pretty ways to achieve encapsulation. But the crux of the question is not so much whether you want encapsulation or not, but rather whether you want to write your JavaScript in a object-based but not object-oriented manner. In other words, whether you want to be able to avoid the tight coupling that comes with traditional class inheritance mechanisms, and exclusively leverage association and composition as the core behavior-reuse mechanism.
+"But what if I don't want to use Typescript and still *enforce* encapsulation?" As mentioned, there are other not so pretty ways to achieve encapsulation. But the crux of the question is not so much whether you want encapsulation or not, but rather whether you want to write your JavaScript in a object-based but not object-oriented manner. In other words, whether you want to be able to avoid the tight coupling that comes with traditional class inheritance mechanisms, and exclusively leverage association and composition as the core behavior-reuse mechanism. This reason, rather than the others, makes the best case for the adoption of the pattern, as it would effectively prevent the use of prototypes.
+
+The choice between the two patterns really is a matter of how you want to structure your project and whether your want your JavaScript to look like your C#. Especially for full-stack roles
