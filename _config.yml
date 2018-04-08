@@ -5,7 +5,7 @@ exclude: ["Gemfile", "Gemfile.lock", "ignore", "yarn.lock", "node_modules", "pac
 include: ["public/*"]
 karmdown:
   show_warnings: true
-highlighter: pygments
+highlighter: rouge
 
 index: /
 about: about
