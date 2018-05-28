@@ -2,7 +2,7 @@
 layout: post
 title: The anathomy of a minimal React + JSX dev setup
 permalink: anathomy-of-minimal-react-setup
-date: 2018-05-20
+date: 2018-05-28
 ---
 
 This is yet another blog post about minimal React (Preact etc) setups in 2018. This post is meant to address a simple question: what are the minimum dev environment requirements to get started with React + JSX and why each of them is a necessary piece of the puzzle. I'm going to breakdown each of them as follows: identify the requirement and its purpose, describe and explain my preferred way to put it into place, explain why it's strictly necessary and finally provide some alternatives where applicable.
@@ -73,11 +73,7 @@ We're including the modules we strictly need, which include the React framework,
 {% endhighlight %}
 
 Basically we only want to run babel over our JSX files and transpile them to equivalent JS. And that is all we're using babel for, no ES5 compatibility, no minification etc.
-This also assumes you are going to direct babel to the files to transpile via the CLI. Finally, you'll want to put the output somewhere relevant:
-
-{% highlight sh %}
-npx babel src --out-dir public
-{% endhighlight %}
+This also assumes you are going to direct babel to the files to transpile via the CLI. Finally, you'll want to put the output somewhere relevant: `npx babel src --out-dir public`
 
 You may additionally want to include copying other files over to your `public` directory, without changing them (e.g. your css and other plain JS files).
 
@@ -107,7 +103,7 @@ A bundler takes the entry point file of your application (e.g. index.js), then r
 
 Once you've added `parcel` to your dev dependencies you should be good to feed it the entry point with an output dir and you're good to go: `parcel build src/index.js --out-dir public`.
 
-That's it. No config file (other than for Babel, but seems that's also [optional](https://medium.com/@devongovett/parcel-v1-6-0-46f4a2514668) in new releases and Parcel works out that you need to use Babel with your JSX files itself).
+That's it. No config file (other than for Babel, but seems that's also [optional](https://medium.com/@devongovett/parcel-v1-6-0-46f4a2514668) in new releases and Parcel works out that you need to use Babel with your JSX files by itself).
 
 #### Alternatives
 
@@ -138,6 +134,6 @@ module.exports = {
 
 ## Conclusion
 
-The truly essential piece of the puzzle is really a JSX transformer ... however best practices would have you use a bundler. Parcel actually supports JSX with zero Babel config out of the box as well, although that is still used under the hood, finally making React + JSX development in 2018 a one-step process! The suggestion is to use parcel to get started, and if and when you require the additional customization options of other bundler to switch to Webpack/Browserify. Depending on the lifetime of the project, you may never need either and there is no added value to the user in making your build process more complex than it needs to be.
+The truly essential piece of the puzzle is really a JSX transformer ... however best practices would have you use a bundler. Parcel actually supports JSX with zero Babel config out of the box as well, although that is still used under the hood, finally making React + JSX development in 2018 a one-step process! The suggestion is to use parcel to get started, and if and when you require the additional customization options of other bundlers to switch to Webpack/Browserify. Depending on the lifetime of the project, you may never need either and there is no added value to the user in making your build process more complex than it needs to be.
 
 Hopefully you've found this post informative and can walk away with a good understanding of the various cogs and wheels in the machinery that makes React and JSX development possible.
