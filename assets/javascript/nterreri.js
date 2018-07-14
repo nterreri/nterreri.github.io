@@ -7,7 +7,11 @@ if (window.nt) {
 }
 
 function hasCookiesConsent() {
-    return !localStorage.getItem('no-consent');
+    return !navigator.doNotTrack && !localStorage.getItem('consent-denied');
+}
+
+function denyCookiesConsent() {
+    localStorage.setItem('consent-denied', true);
 }
 
 function cookieBannerAcknowledged() {
@@ -65,6 +69,7 @@ function trackPageHit() {
 
 window.nt = {
     hasCookiesConsent,
+    denyCookiesConsent,
     cookieBannerAcknowledged,
     showCookiesBanner,
     trackPageHit

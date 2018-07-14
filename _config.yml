@@ -2,7 +2,7 @@ repository: nterreri/nterreri.github.io
 port: 8000
 strict_front_matter: true
 exclude: ["Gemfile", "Gemfile.lock", "ignore", "yarn.lock", "node_modules", "package.json", ".jshintrc", ".jscsrc"]
-include: ["public/*"]
+include: ["public/*", "privacy/*"]
 karmdown:
   show_warnings: true
 highlighter: rouge
@@ -12,4 +12,5 @@ about: about
 privacy: privacy
 stylesheet: nt.css
 favico: favicon.ico
-
+ga: https://www.googletagmanager.com/gtag/js?id=UA-114389878-1
+analytics: /assets/javascript/nterreri.js

@@ -2,7 +2,7 @@
     <meta charset="utf-8">
     <meta name="viewport" value="height=device-height, width=device-width, initial-scale=1.0">
     <title>{{ page.title }}</title>
-    <link rel="stylesheet" href={{ site.stylesheet }}>
-    <link rel="icon" href={{ site.favico }} type="image/x-icon">
+    <link rel="stylesheet" href={{ site.stylesheet | absolute_url }}>
+    <link rel="icon" href={{ site.favico | absolute_url }} type="image/x-icon">
     <link rel="shortcut icon" href={{ site.favico | absolute_url }} type="image/x-icon">
 </head>

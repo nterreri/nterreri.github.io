@@ -1,0 +1,17 @@
+---
+---
+<!DOCTYPE html>
+<html lang="en">
+    {% include head.html %}
+    <body>
+        {% include header.html %}
+        <div class="nt-content">
+            <h1>Opted out</h1>
+
+            <p>This website won't track you when you visit from this browser on this device.</p>
+        </div>
+        {% include footer.html %}
+        {% include analytics.html %}
+        <script defer>nt.denyCookiesConsent();</script>
+    </body>
+</html>
