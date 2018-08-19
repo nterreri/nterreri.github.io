@@ -2,6 +2,7 @@
 layout: post
 title: Reference types in JavaScript
 permalink: reference-types-js
+date: 2018-08-19
 ---
 
 The distinction between reference and value types typically belong to traditional compiled languages such as [C#](https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/value-types) and Java.
@@ -12,11 +13,11 @@ There is no definition of value vs reference in the spec of languages like JavaS
 
 As extensively [discussed]({{ site.baseurl }}{% link _posts/2018-02-17-value-types-considered-harmful-1.md %}) [elsewhere]({{ site.baseurl }}{% link _posts/2018-02-17-value-types-considered-harmful-1.md %}), the difference between reference and value types boils down to their identity and copy semantics: reference types instances are only self-identical (different value type instances can be identical to each other), reference type instance copy preserves reference identity (value type instance copy does not).
 
-Effectively, all types in the ECMAScript spec (except maybe Symbol) have value type semantics except for the object type. So, even if the distinction is not emphasized or explicitly stated, it is implicitly part of the language.
+Effectively, all types in the ECMAScript spec have value type semantics except for the object type (and maybe Symbol`s). So, even if the distinction is not emphasized or explicitly stated, it is implicitly part of the language.
 
-Additionally, there is no way to define custom types with value type semantics, any user defined type has reference type semantics (even if defined with no prototype via `Object.create(null)`), anything that isn't a language primitive (that is has special language syntax support) has reference type semantics. Again, this is unlike languages like C#.
+Additionally, there is no way to define custom types with value type semantics, any user defined type has reference type semantics (even if defined with no linked prototype via `Object.create(null)`), anything that isn't a language primitive (that is has special language syntax support) has reference type semantics. Again, this is unlike languages like C#.
 
-## The `trySomething` pattern
+## Adapting the `trySomething` pattern to JS
 
 A typical C# coding patterns is the "trySomething" pattern:
 
@@ -26,9 +27,9 @@ if (!trySomething(out var initializeMe)) {
 }
 
 Log("Initialized reference with value:", initializeMe);
-{% endhighlight}
+{% endhighlight %}
 
-This pattern allows attempting some operation with a returned result value that may fail without involving exceptions as a way to communicate failure, compare to this:
+This pattern allows attempting some operation with a returned result value that may fail without involving exceptions as a way to communicate failure, compare to the following:
 
 {% highlight c# %}
 object thing;
@@ -84,7 +85,7 @@ while(!done) {
 
 One of the best things about working full stack with different programming languages is the exposure you get to different patterns and language features.
 
-Languages such as JS do not explicitly distinguish between reference and value types, do not allow user defined value types and they do not allow for pass by reference semantics. With the lack of these features, alternative patterns have emerged that are roughly equivalent and read with the same level of expressiveness as the originals.
+Languages such as JS do not explicitly distinguish between reference and value types, do not allow user defined value types and they do not allow for pass by reference semantics. Lacking these features, alternative patterns have emerged that are roughly equivalent and read with the same level of expressiveness as the originals.
 
 #### Further reading
-- E. Lippert. *[The stack is an implementation detail, part one][5]*. 2009.
+- E. Lippert. *[The stack is an implementation detail, part one](https://blogs.msdn.microsoft.com/ericlippert/2009/04/27/the-stack-is-an-implementation-detail-part-one/)*. 2009.
