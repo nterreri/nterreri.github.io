@@ -69,3 +69,7 @@ sender.replaceTrack(audioTrack);
 As of time of writing, only Firefox supports the `addTransceiver` method. In fact, it appears not even the webrtc adapter shim (which is required to shim webrtc for Edge, so you don't have to maintain two implementations of your RTC application) supports it. Support for the full set of methods defined in the spec is still spotty in Chrome, and the API is poorly documented. When fully fleshed out and supported, however, it will enable webrtc developers to have more control over media and transport configuration than before.
 
 This means that although the options have been formally deprecated, wide browser support for the new API is as yet not available. However, for us continuing to build and support webrtc-enabled applications we should keep up with the latest changes, ensuring our applications leverage the latest and greatest.
+
+### References
+
+- J. Bruaroey. [https://blog.mozilla.org/webrtc/rtcrtptransceiver-explored/](https://blog.mozilla.org/webrtc/rtcrtptransceiver-explored/). 2018.
