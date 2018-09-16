@@ -21,7 +21,8 @@ Transceivers, senders and receivers are primarily used to control:
 
 1. The media type (e.g. audio or video)
 2. The media direction (send only, send and receive, etc)
-3. Configure individual media codecs
+3. Individual media codecs
+4. The media transport
 
 For the most part, application developers are likely mostly interested in configuring the media type and maybe the direction, codec parameter controls are more advanced: dynamically switch the sending track without renegotiating, or prohibit certain codecs or change codec priority.
 
@@ -29,7 +30,7 @@ For the most part, application developers are likely mostly interested in config
 
 ## Two ways to add transceivers
 
-Once a peer connection has been created and configured, and we then create an offer to send to the peer (if initiating the session or an answer if the peer sent you an offer):
+Once a peer connection has been created and configured, we then create an offer to send to the peer (if initiating the session or an answer if the peer sent you an offer):
 
 {% highlight javascript %}
 for (const track of mediaStream.getAudioTracks()) {
@@ -53,7 +54,7 @@ const sender = peerConnection.addTrack(track);
 const transceiver = peerConnection.getTransceivers().filter(t => t.sender === sender)[0];
 {% endhighlight %}
 
-Note that this is really only a problem if you have multiple media kinds, or are sending multiple tracks of the same kind (e.g. audio and video), if you are only sending one single media stream across (e.g. audio) then there will be a single transceiver. Another way to add a transceiver is to explicitly specify the media kind, when adding a track this is automatically configured based on the track kind. This way you don't have to "guess" which transceiver is the correct one, you can then add a track on the sender.
+Note that this is really only a problem if you have multiple media kinds (e.g. audio and video), or are sending multiple tracks of the same kind, if you are only sending one single media stream across (e.g. audio) then there will be a single transceiver. Another way to add a transceiver is to explicitly specify the media kind, when adding a track this is automatically configured based on the track kind. This way you don't have to "guess" which transceiver is the correct one, you can then add a track on the sender.
 
 {% highlight javascript %}
 const transceiver = peerConnection.addTransceiver('audio');
