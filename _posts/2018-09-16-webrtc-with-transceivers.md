@@ -1,6 +1,7 @@
 ---
 layout: post
 title: Webrtc with transceivers
+description: A transceiver is a permanent pairing of a receiver and a sender. Receivers and senders are a plain JS abstraction over the underlying media transmission, this means that a webrtc developer can use these objects to control and monitor the state of the underlying peer to peer connection.
 permalink: webrtc-with-transceivers
 date: 2018-09-16
 ---

@@ -1,6 +1,7 @@
 ---
 layout: post
 title: WebRTC file transfer sample without cheating
+description: This post basically re-implements the file transfer Webrtc sample, but without cheating.
 permalink: webrtc-without-cheating
 date: 2018-07-29
 ---

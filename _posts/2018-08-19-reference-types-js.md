@@ -1,6 +1,7 @@
 ---
 layout: post
 title: Reference types in JavaScript
+description: There is no definition of value vs reference in the spec of languages like JavaScript and Go. These languages do not wish to make an explicit distinction between references and values. However, they still have types that semantically behave like reference and value types.
 permalink: reference-types-js
 date: 2018-08-19
 ---

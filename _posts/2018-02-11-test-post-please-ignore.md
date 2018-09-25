@@ -1,6 +1,7 @@
 ---
 layout: post
 title: Test post please ignore
+description: This is a test post, it contains test things.
 permalink: test-post-please-ignore
 date: 2018-02-11
 ---

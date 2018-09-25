@@ -1,6 +1,7 @@
 ---
 layout: post
 title: A BEM epiphany
+description: In this post, we'll introduce BEM as a CSS class names naming convention, then talk about how extra class names other than the element's own can be beneficial to the definition of the style of the page.
 permalink: BEM-epiphany
 date: 2018-03-11
 ---

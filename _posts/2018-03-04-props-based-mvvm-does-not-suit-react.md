@@ -1,6 +1,7 @@
 ---
 layout: post
 title: Why props-based MVVM does not suit React
+description: In this post we'll talk about a variant of the MVC patter to decouple views from the rest of the implementation of a user-facing application.
 permalink: props-based-mvvm-does-not-suit-react
 date: 2018-03-04
 ---

@@ -1,6 +1,7 @@
 ---
 layout: post
 title: Two React MVVM patterns
+description: In this post we'll talk about two MVVM-compatible architectural patterns for React aiming at explaining how a user action all the way deep inside a nested view in the corner of a web app can affect a different view on the other side of the app.
 permalink: two-react-mvvm-patterns
 date: 2018-03-24
 ---
