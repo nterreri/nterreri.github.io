@@ -1,6 +1,7 @@
 ---
 layout: post
 title: The anathomy of a minimal React + JSX dev setup
+description: What are the minimum dev environment requirements to get started with React + JSX and why each of them is a necessary piece of the puzzle.
 permalink: anathomy-of-minimal-react-setup
 date: 2018-05-28
 ---

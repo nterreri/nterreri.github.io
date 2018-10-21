@@ -1,6 +1,7 @@
 ---
 layout: post
 title: Against the "factory function" pattern
+description: This post is about a JavaScript pattern called "factory function". Here is an argument not so much against this pattern but rather arguing that wanting to achieve encapsulation is not the best reason for wanting to adopt it.
 permalink: against-factory-function-pattern
 date: 2018-04-08
 ---

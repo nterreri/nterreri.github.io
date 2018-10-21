@@ -1,6 +1,7 @@
 ---
 layout: post
 title: Why DraftJS doesn't work on Android
+description: This post is in particular about why the way Draft works is in principle incompatible with how the Google virtual keyboard which is the default on certain Android devices.
 permalink: why-draftjs-does-not-work-on-android
 date: 2018-04-22
 ---

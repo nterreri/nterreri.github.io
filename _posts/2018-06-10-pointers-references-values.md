@@ -1,6 +1,7 @@
 ---
 layout: post
 title: Pointers, references and values
+description: This post is about explaining that difference, providing design and practical reasons why the two are not equivalent, nor is one a subset of the other.
 permalink: pointers-references-values
 date: 2018-06-10
 ---

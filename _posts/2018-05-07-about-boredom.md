@@ -1,6 +1,7 @@
 ---
 layout: post
 title: About boredom
+description: This is a non-technical post where the author rambles about boredom, arguing that there is never a reason to indulge in boredom
 permalink: about-boredom
 date: 2018-05-07
 ---

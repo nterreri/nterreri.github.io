@@ -1,6 +1,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" value="height=device-height, width=device-width, initial-scale=1.0">
+    <meta name="description" content="{% if page.description %}{{ page.description }}{% else %}{{ site.description }} {% endif %}" />
     <title>{{ page.title }}</title>
     <link rel="stylesheet" href={{ site.stylesheet | absolute_url }}>
     <link rel="icon" href={{ site.favico | absolute_url }} type="image/x-icon">
