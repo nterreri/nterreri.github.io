@@ -1,9 +1,6 @@
-<script async src="https://www.googletagmanager.com/gtag/js?id=UA-114389878-1"></script>
-<script src="assets/javascript/nterreri.js"></script>
+<script async src={{ site.ga }}></script>
+<script src={{ site.analytics }}></script>
 <script>
-nt.hasCookiesConsent() ? nt.trackPageHit() : void 0;
-
-if (!nt.cookieBannerAcknowledged()) {
-    nt.showCookiesBanner()
-}
+nt.hasCookiesConsent() ? nt.trackPageHit() : void 0,
+nt.cookiesAcknowledged() ? void 0 : nt.showCookiesBanner();
 </script>

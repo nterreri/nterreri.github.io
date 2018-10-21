@@ -7,11 +7,19 @@ if (window.nt) {
 }
 
 function hasCookiesConsent() {
-    return !localStorage.getItem('no-consent');
+    return !doNotTrack() && !localStorage.getItem('consent-denied');
 }
 
-function cookieBannerAcknowledged() {
-    return localStorage.getItem('cookies-acknowledged');
+function doNotTrack() {
+    return +navigator.doNotTrack > 0;
+}
+
+function denyCookiesConsent() {
+    localStorage.setItem('consent-denied', true);
+}
+
+function cookiesAcknowledged() {
+    return localStorage.getItem('cookies-acknowledged') || localStorage.getItem('consent-denied');
 }
 
 function showCookiesBanner() {
@@ -27,6 +35,7 @@ function showCookiesBanner() {
     const cookiePolicyLink = document.createElement('a');
     cookiePolicyLink.setAttribute('href', '/privacy');
     cookiePolicyLink.setAttribute('class', 'nt-consent__link');
+    cookiePolicyLink.onclick = handleCookiesAcknowledged;
     const cookiePolicyLinkLabel = document.createElement('span');
     cookiePolicyLinkLabel.setAttribute('class', 'nt-consent__link-label');
     cookiePolicyLinkLabel.textContent = 'Read more';
@@ -36,7 +45,7 @@ function showCookiesBanner() {
     const okButton = document.createElement('button');
     okButton.setAttribute('class', 'nt-consent__ok-button');
     okButton.textContent = 'OK';
-    okButton.onclick = handleOkClick;
+    okButton.onclick = handleCookiesAcknowledged;
 
     consentHeader.appendChild(messageNode);
     consentHeader.appendChild(okButton);
@@ -45,7 +54,7 @@ function showCookiesBanner() {
     document.getElementsByTagName('header')[0].setAttribute('class', 'nt-header--with-consent');
 }
 
-function handleOkClick(e) {
+function handleCookiesAcknowledged(e) {
     localStorage.setItem('cookies-acknowledged', true);
 
     document.getElementsByTagName('header')[0].setAttribute('class', 'nt-header');
@@ -65,7 +74,8 @@ function trackPageHit() {
 
 window.nt = {
     hasCookiesConsent,
-    cookieBannerAcknowledged,
+    denyCookiesConsent,
+    cookiesAcknowledged,
     showCookiesBanner,
     trackPageHit
 };

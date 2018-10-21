@@ -3,6 +3,9 @@
     "version": "0.1",
     "description": "Software supporting my personal blog.",
     "license": "BSD-3-Clause",
+    "scripts": {
+        "dev": "jekyll serve -D"
+    },
     "keywords": [
         "blog"
     ],
