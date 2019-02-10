@@ -7,7 +7,7 @@ title: nterreri
 
 Hello, welcome to my personal website.
 
-- Niccolò is a software developer based in London, has a master's degree in computer science and a 
+- Niccolò is a software developer with a master's degree in computer science and a 
 couple of years of professional experience.
 
 - Has experience developing web applications and hybrid mobile apps via Cordova, specializes in C#,
