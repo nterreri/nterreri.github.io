@@ -6,7 +6,7 @@ permalink: why-voip-shows-your-ip-address
 date: 2019-02-10
 ---
 
-A lot of applications using direct peer2peer connectivity show a public IP address assigned by an internet service provider to your router, only a few get crucified for it (see recent [The Division 2 beta outrage](https://www.shacknews.com/article/109813/the-division-2-shows-your-public-ip-to-others-by-default)). If someone else on the internet knows this IP address they can perform potentially malicious attacks against it (such as DDoS).
+A lot of applications using direct peer2peer connectivity show the public IP address assigned by an internet service provider to your router to a remote un-trusted peer, only a few get crucified for it (see recent [The Division 2 beta outrage](https://www.shacknews.com/article/109813/the-division-2-shows-your-public-ip-to-others-by-default)). If someone else on the internet knows this IP address they can perform potentially malicious attacks against it (such as DDoS).
 
 Did we not learn exposing your IP address to potentially ill-meaning strangers is bad? Why is new software being made that potentially exposes the user to these attacks?
 
